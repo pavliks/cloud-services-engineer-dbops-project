@@ -22,7 +22,7 @@ jobs:
           -e FLYWAY_URL -e FLYWAY_USER -e FLYWAY_PASSWORD \
           flyway/flyway:12 \
           -locations="filesystem:/flyway/sql" \
-          repair
+          migrate
 
     ### Этот шаг оставьте без изменений
     - name: Download and setup autotests binaries
