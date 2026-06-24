@@ -20,7 +20,7 @@ jobs:
         docker run --rm --network host \
           -v "${{ github.workspace }}/migrations:/flyway/sql" \
           -e FLYWAY_URL -e FLYWAY_USER -e FLYWAY_PASSWORD \
-          flyway/flyway:10 \
+          flyway/flyway:12 \
           -locations="filesystem:/flyway/sql" \
           migrate
 
