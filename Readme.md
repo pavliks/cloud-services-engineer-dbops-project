@@ -55,3 +55,30 @@ DB_PASSWORD
 - состав заказов вставляется в `order_product`;
 - sequence для identity-колонок `product.id` и `orders.id` обновляются после вставки явных идентификаторов, чтобы последующие вставки с `DEFAULT` не конфликтовали по id.
 
+## Запрос для отображения какое количество сосисок было продано за каждый день предыдущей недели:
+
+```sql
+SELECT o.date_created,
+       SUM(op.quantity)
+FROM orders AS o
+JOIN order_product AS op ON o.id = op.order_id
+WHERE o.status = 'shipped'
+  AND o.date_created > NOW() - INTERVAL '7 DAY'
+GROUP BY o.date_created
+ORDER BY o.date_created;
+```
+
+Результат выполнения
+
+```text
+ date_created |  sum   
+--------------+--------
+ 2026-06-18   | 946845
+ 2026-06-19   | 942823
+ 2026-06-20   | 943287
+ 2026-06-21   | 945231
+ 2026-06-22   | 941353
+ 2026-06-23   | 946523
+ 2026-06-24   | 622772
+(7 rows)
+```
