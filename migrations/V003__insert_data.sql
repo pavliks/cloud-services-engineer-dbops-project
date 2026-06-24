@@ -1,3 +1,4 @@
+-- заполняем таблицы `product`, `orders` и `order_product` данными
 INSERT INTO product (id, name, picture_url, price)
 VALUES
     (1, 'Сливочная', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/6.jpg', 320.00),
