@@ -97,6 +97,7 @@ CREATE INDEX orders_status_date_idx ON orders(status, date_created);
 
 - `orders_status_date_idx` на `orders(status, date_created)` — покрывает фильтр `orders.status = 'shipped'` и `orders.date_created > NOW() - INTERVAL '7 DAY'`; ведущий столбец `status` обслуживает условие равенства, `date_created` — последующий диапазон по дате;
 - `order_product_order_id_idx` на `order_product(order_id)` — индекс по внешнему ключу `order_product.order_id` (PostgreSQL индекс на FK автоматически не создаёт); полезен для точечных выборок состава конкретного заказа.
+
 Результат выполнения того же запроса после создания индексов (установившееся значение на прогретом кэше):
  
 ```text
