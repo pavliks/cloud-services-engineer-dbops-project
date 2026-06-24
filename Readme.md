@@ -13,7 +13,6 @@ CREATE DATABASE store;
 
 ```sql
 CREATE USER store_user WITH PASSWORD 'store_password';
-
 \c store
 GRANT CREATE ON SCHEMA public TO store_user;
 ```
