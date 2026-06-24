@@ -17,3 +17,12 @@ CREATE USER store_user WITH PASSWORD 'store_password';
 GRANT CREATE ON SCHEMA public TO store_user;
 ```
 
+## Заполнены значения secrets для GitHub Actions для базы на полученной виртуальной машине с полученными данными для миграций:
+
+```text
+DB_HOST
+DB_PORT
+DB_NAME
+DB_USER
+DB_PASSWORD
+```
